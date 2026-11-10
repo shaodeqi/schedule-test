@@ -1,0 +1,27 @@
+# 与 huami_steps 相同的定时配置，用于验证公开仓库的 schedule 是否会触发。
+# cron：*/5 每 5 分钟；58 9 * * * + Asia/Shanghai = 北京时间 09:58。
+
+name: Schedule Test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/schedule-test.yml'
+  schedule:
+    - cron: '*/5 * * * *'
+      timezone: 'Asia/Shanghai'
+    - cron: '58 9 * * *'
+      timezone: 'Asia/Shanghai'
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Record trigger
+        run: |
+          echo "event=${{ github.event_name }}"
+          echo "schedule=${{ github.event.schedule }}"
+          date -u
+          TZ=Asia/Shanghai date
