@@ -9,9 +9,7 @@ on:
     paths:
       - '.github/workflows/schedule-test.yml'
   schedule:
-    - cron: '*/5 * * * *'
-      timezone: 'Asia/Shanghai'
-    - cron: '58 9 * * *'
+    - cron: '1/6 * * * *'
       timezone: 'Asia/Shanghai'
   workflow_dispatch:
 
