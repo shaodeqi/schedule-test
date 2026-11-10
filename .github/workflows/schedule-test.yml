@@ -1,5 +1,4 @@
 # 与 huami_steps 相同的定时配置，用于验证公开仓库的 schedule 是否会触发。
-# cron：*/5 每 5 分钟；58 9 * * * + Asia/Shanghai = 北京时间 09:58。
 
 name: Schedule Test
 
